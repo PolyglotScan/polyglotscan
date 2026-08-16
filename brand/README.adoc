@@ -12,12 +12,18 @@ All rights reserved. See `LICENSE` in this folder and repository `TRADEMARK.adoc
 
 | `logo-on-dark.svg` | Same mark on a black rounded square. GitHub social preview, splash, store listing *when a filled tile is required*.
 
-| `raster/logo-256.png` | Raster of `logo.svg`.
+| `raster/logo.png` | 512px raster of `logo.svg`.
 
-| `raster/logo-on-dark-256.png` | Raster of `logo-on-dark.svg`.
+| `raster/logo-256.png` | 256px raster of `logo.svg`. GitHub org avatar (transparent).
+
+| `raster/logo-on-dark.png` | 512px raster of `logo-on-dark.svg`.
+
+| `raster/logo-on-dark-256.png` | 256px raster of `logo-on-dark.svg`. Apple touch / opaque tile.
 
 | `icon.ico` | Windows icon (16/32/48/256 from the transparent mark).
 |===
+
+Site copies of the rasters live in `apps/web/public/` (`logo.png`, `logo-256.png`, and the on-dark pair). The same SVG + PNG set is in `{org}/.github` `profile/` for grab-from-the-org-profile. Canonical sources stay in this folder. Regenerate with Inkscape: `--export-width=512` (or `256`) and `--export-background-opacity=0`.
 
 Always keep a no-background companion next to any filled-tile variant.
 

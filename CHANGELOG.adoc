@@ -12,9 +12,11 @@ This project follows https://semver.org/spec/v2.0.0.html[Semantic Versioning].
 * Export to PDF, PNG, JPEG, and JPEG-XL.
 * Marketing site (SolidStart static, solid-ui): black/white with scan-bar green, top-bar i18n, GitHub link.
 * Brand Guardian License 1.0 Standard on software; reserved brand; Prohibited Distribution against store-clone spam.
+* 512px PNG rasters (`brand/raster/logo.png`, `logo-on-dark.png`) next to the existing 256px files; site copies, Apple/OG icons, and matching files in `{org}/.github` `profile/`.
 
 === Details
 
 * xref:changelog-details/2026-08-15-bootstrap.adoc[2026-08-15 — Workspace bootstrap]
 * xref:changelog-details/2026-08-15-site-brand-mpl.adoc[2026-08-15 — Website, mark, and license split]
 * xref:changelog-details/2026-08-15-bgl-reference.adoc[2026-08-15 — Brand Guardian License 1.0 Standard]
+* xref:changelog-details/2026-08-16-logo-png-rasters.adoc[2026-08-16 — 512px PNG logo rasters]

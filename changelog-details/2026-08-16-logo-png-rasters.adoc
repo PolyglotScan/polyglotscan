@@ -1,0 +1,5 @@
+= 512px PNG logo rasters
+
+Date:: 2026-08-16
+
+Added `brand/raster/logo.png` and `logo-on-dark.png` (512px, transparent corners) alongside the existing 256px files. The same four PNGs (plus both SVGs) are copied into `apps/web/public/` and `{org}/.github` `profile/`. Apple touch uses the opaque-tile 256; Open Graph uses the 512 on-dark raster.

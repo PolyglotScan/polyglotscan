@@ -15,6 +15,8 @@ export default createHandler(() => (
           />
           <link rel="icon" href="/favicon.ico" />
           <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+          <link rel="apple-touch-icon" href="/logo-on-dark-256.png" />
+          <meta property="og:image" content="/logo-on-dark.png" />
           <title>PolyglotScan</title>
           {assets}
         </head>
