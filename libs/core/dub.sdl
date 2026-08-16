@@ -1,0 +1,8 @@
+name "polyglotscan-core"
+description "Device model, raster, backend registry."
+authors "AMDphreak"
+license "LicenseRef-Brand-Guardian-License-1.0-Standard"
+targetType "library"
+targetPath "lib"
+sourcePaths "source"
+importPaths "source"

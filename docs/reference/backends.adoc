@@ -1,0 +1,11 @@
+= Backends
+
+`ScanBackend.id` values used by the registry:
+
+| ID | Package | Protocol |
+|----|---------|----------|
+| `fixture` | `polyglotscan:fixture` | File / synthetic gray |
+| `wia` | `polyglotscan:wia` | Windows Image Acquisition (Automation) |
+| `twain` | `polyglotscan:twain` | TWAIN 2 DSM |
+| `escl` | `polyglotscan:escl` | eSCL (`ScannerCapabilities` / `ScanJobs`) |
+| `epson` | `polyglotscan:epson` | Same devices as TWAIN/WIA, vendor hints only |

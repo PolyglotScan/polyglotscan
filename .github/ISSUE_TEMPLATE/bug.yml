@@ -1,0 +1,30 @@
+name: Bug report
+description: Something is broken in PolyglotScan
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Use for the official software. Store clones pretending to be PolyglotScan go under the trademark policy, not here.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expect
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      placeholder: 0.1.0 or git SHA
+  - type: textarea
+    id: setup
+    attributes:
+      label: Scanner and OS
+      placeholder: Windows 11, Epson ET-4800, TWAIN or WIA

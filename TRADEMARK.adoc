@@ -1,0 +1,47 @@
+= PolyglotScan trademark and naming guidelines
+
+These guidelines designate **Branding** for Brand Guardian License 1.0 Standard (see link:LICENSE[LICENSE]). Misuse of marks is both a BGL Branding breach and a trademark issue.
+
+Not legal advice.
+
+== Marks
+
+Reserved (not licensed as Software):
+
+* PolyglotScan, polyglotscan, polyglotscan.com
+* The platen-and-lamp device mark (see `brand/`)
+* Confusingly similar names: Poly Scan, Polyglot Scanner, PScan, official-sounding “Epson Scan” mashups
+
+== Permitted without asking
+
+* Truthful, non-stylized text: “fork of PolyglotScan”, “compatible with PolyglotScan plugins”, “based on PolyglotScan”.
+* Using the source under a **new name**, with your own icon, and a clear “not affiliated” note, subject to BGL (no Prohibited Distribution).
+* Academic / news mention of the project.
+
+== Official branding (needs written permission)
+
+Using the name *as the product name*, the logo in an installer/store listing, splash screens, or domain/app-id that impersonates this project.
+
+Official builds are **ad-free**. Permission is not granted for builds that use the marks *and* include advertising, trackers sold as the product, or a subscription whose main function is hiding ads.
+
+== Prohibited Distribution
+
+Do **not** publish, in any app store or similar channel, a listing of this software (or a derivative) that is:
+
+. a frivolous or duplicate listing that adds no substantial value (clone spam);
+. malicious (malware, credential theft, unwanted bundled software);
+. cognitively or commercially abusive: ad stuffing, dark patterns, or “remove ads” paywalls on a reupload of this software.
+
+That is Brand Guardian License 1.0 Standard §1 *Prohibited Distribution* (https://github.com/dev-centr/brand-guardian-license), applied here as copyright terms on the Software *and* as a condition on the marks.
+
+== Forks
+
+Forks that diverge or monetize with ads **must pick a distinct name and icon**. Keep BGL Standard notices on the Software. Do not imply PolyglotScan maintainers endorse the fork.
+
+== Store listings
+
+The canonical publisher is the PolyglotScan GitHub organization and domains it publishes. Unofficial store uploads using these marks will be treated as Branding misuse and Prohibited Distribution.
+
+== Contact
+
+Trademark questions: open an issue on https://github.com/PolyglotScan/polyglotscan or use the org profile contact.

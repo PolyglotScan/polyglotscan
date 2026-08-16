@@ -1,0 +1,5 @@
+= Workspace bootstrap
+
+Date:: 2026-08-15
+
+Stood up the PolyglotScan DUB workspace: reusable scan/image/encode libraries, standard WIA/TWAIN/eSCL backends, an Epson *plugin* (not an `epsonscan-d` product), and a dlangui app whose preview is large enough to judge binarization.

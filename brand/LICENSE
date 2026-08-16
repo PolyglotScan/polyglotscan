@@ -1,0 +1,18 @@
+PolyglotScan brand assets
+Copyright (c) 2026 PolyglotScan contributors. All rights reserved.
+
+The contents of this `brand/` directory (logos, icons, wordmarks, color tokens
+as identity, splash art, and derived PNGs/ICOs) are Branding under Brand
+Guardian License 1.0 Standard. They are not licensed as Software.
+
+You may not copy, modify, distribute, or use these assets except:
+
+  (a) as included, unmodified, in an official PolyglotScan binary or website
+      published by the PolyglotScan project; or
+  (b) under written permission from the copyright holders; or
+  (c) limited, non-stylized factual reference (e.g. a news article showing
+      a screenshot of the official app).
+
+See ../TRADEMARK.adoc, ../LICENSING.adoc, and ../LICENSE.
+
+To ship a fork, replace these files with your own identity.

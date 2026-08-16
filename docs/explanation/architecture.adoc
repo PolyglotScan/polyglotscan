@@ -1,0 +1,99 @@
+= PolyglotScan architecture
+
+== Verdict (Epson Scan 2 replacement)
+
+A custom app **can beat the official advanced UI on the receipt problem** without Epson’s partner SDK:
+
+* Scan grayscale via TWAIN/WIA/eSCL (the same pipes Scan 2 sits on).
+* Do black-and-white in software with a **1:1 zoomable preview**, loupe, histogram, and **Sauvola** (local) threshold — global driver Threshold is what “cut off at the wrong level.”
+* Export JPEG-XL, which Scan 2 does not.
+
+It **cannot** honestly claim 1:1 feature parity with Scan 2 / ScanSmart (device maintenance, film ICE, Epson cloud, every proprietary “Text Enhancement” knob) unless Epson grants the Scan SDK. Those extras belong in `polyglotscan-epson` **if** the TWAIN custom caps or a licensed SDK appear later.
+
+== Naming
+
+| Do | Do not |
+|----|--------|
+| Product: **PolyglotScan** | `epsonscan-d`, `Epson Scan D`, `ScanSmart-d` |
+| Plugin: `polyglotscan-epson` | Implying affiliation on executables or domains |
+| Baseline backends: WIA, TWAIN, eSCL | Requiring a vendor SDK to open the app |
+
+Nominative fair use (`"works with Epson ET-4800 via TWAIN"`) is the documentation style. Not legal advice; if you ship commercially, have counsel look at the About box and plugin listing.
+
+== Package map (this repo)
+
+Libraries are DUB subpackages so they can split to `github.com/PolyglotScan/<name>` without rewriting imports (`polyglotscan.core`, `polyglotscan.wia`, …).
+
+```
+polyglotscan-core      session, caps, plugin registry, Raster
+polyglotscan-image     histogram, global threshold, Sauvola
+polyglotscan-encode    PNG / JPEG / JPEG-XL / PDF
+polyglotscan-wia       Windows Image Acquisition (standard)
+polyglotscan-twain     TWAIN DSM (standard)
+polyglotscan-escl      eSCL HTTP (standard)
+polyglotscan-epson     vendor *hints* only (name matching, default caps)
+polyglotscan-fixture   open a file as if it were a scan
+polyglotscan (app)     dlangui shell + PreviewWidget
+```
+
+== Missing layers (intentionally not faked as done)
+
+These are the holes a “well architected” split would still show after v0.1:
+
+[cols="1,2,1"]
+|===
+| Layer | Why it is a real library later | Status
+
+| `polyglotscan-preview-vello`
+| 1:1 / high-zoom preview on the vello-d GPU backend the dlangui experiment is headed toward. Faster loupe, tiled decode.
+| Missing. dlang-supplemental/dlangui has no published `vello-windows` dub config; the app uses dlangui CPU `drawRescaled`.
+
+| `polyglotscan-sane`
+| Linux device access (SANE). `sand` on DUB is stale.
+| Missing (Windows-first).
+
+| `polyglotscan-twain32-worker`
+| Out-of-proc 32-bit TWAIN host (NAPS2 pattern). Many DS still 32-bit only.
+| Missing. 64-bit DSM + native xfer in-process.
+
+| `polyglotscan-ocr`
+| Tesseract/Scribe downstream; not required to *see* a receipt.
+| Missing.
+
+| `polyglotscan-deskew` / crop / punch-hole / edge-fill
+| Scan 2 Advanced tab clones. Should not live in the Epson plugin if they are generic.
+| Missing.
+
+| `polyglotscan-pdf-searchable`
+| PDF/A + text layer. Current PDF is image-only.
+| Missing.
+
+| `polyglotscan-device-watch`
+| USB plug events, eSCL mDNS (`_uscan._tcp`).
+| Missing (manual refresh).
+
+| `polyglotscan-settings`
+| JSON5 profiles, last-used crop, per-device defaults.
+| Missing (process memory only).
+
+| `polyglotscan-job`
+| ADF batch, duplex collate, blank-page drop.
+| Missing.
+
+| `polyglotscan-update` / installer
+| Software Product Essentials: MSI/MSIX, About build id, auto-update.
+| Missing (dev `dub run` only).
+
+| Official Epson Scan SDK bindings
+| Would live *behind* `polyglotscan-epson` and stay unpublished without a license.
+| Not nested in this tree.
+|===
+
+== Receipt pipeline
+
+. Acquire **8-bit gray** (never hardware B&W for this workflow).
+. Keep that buffer immutable.
+. Preview = zoom/pan/loupe of `threshold(gray)` or `sauvola(gray)`.
+. Export binary or still-gray; user chooses.
+
+This is why Zoom/Loupe being disabled in Epson’s app is fatal: you cannot tell if Threshold 70 vs 140 murdered the light toner until the file is written.

@@ -1,0 +1,28 @@
+name: Feature request
+description: A change to core, a backend, or a vendor plugin
+title: "[feat] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposal
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Layer
+      options:
+        - App / preview UX
+        - Core / plugins
+        - WIA / TWAIN / eSCL
+        - Encode (PDF PNG JPEG JXL)
+        - Website
+        - Other

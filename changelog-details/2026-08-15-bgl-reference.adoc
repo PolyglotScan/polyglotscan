@@ -1,0 +1,3 @@
+= Brand Guardian License 1.0 Standard
+
+Software is Brand Guardian License 1.0 Standard (stewarded by Dev-Centr). Where MPL would allow store-clone or branding uses that BGL forbids, BGL wins: this tree does not ship MPL. Branding stays in `brand/` and TRADEMARK; Prohibited Distribution is a copyright term on the code.

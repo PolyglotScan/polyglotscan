@@ -1,0 +1,24 @@
+= Brand assets
+
+All rights reserved. See `LICENSE` in this folder and repository `TRADEMARK.adoc`.
+
+== Files
+
+[cols="1,2"]
+|===
+| File | Use
+
+| `logo.svg` | Device mark, **no** backing square (transparent). Default for README, taskbar, overlay on photos.
+
+| `logo-on-dark.svg` | Same mark on a black rounded square. GitHub social preview, splash, store listing *when a filled tile is required*.
+
+| `raster/logo-256.png` | Raster of `logo.svg`.
+
+| `raster/logo-on-dark-256.png` | Raster of `logo-on-dark.svg`.
+
+| `icon.ico` | Windows icon (16/32/48/256 from the transparent mark).
+|===
+
+Always keep a no-background companion next to any filled-tile variant.
+
+Lamp color: identity is a **cool-white** carriage with a **green** bloom (scan LED / older CCFL mix). Not an Epson logo.

@@ -1,0 +1,8 @@
+= Initial PolyglotScan workspace
+
+Stood up the product under the PolyglotScan org with a DUB library split instead of a single Epson-branded binary.
+
+* Desktop app with a full-window pan/zoom/loupe preview and live global or Sauvola binarize.
+* Backends: fixture (sample receipt + open file), WIA, TWAIN, eSCL skeleton, Epson vendor plugin.
+* Encoders: PNG, JPEG, JPEG-XL (via `cjxl` when present), image-only PDF.
+* Intentionally **not** named `epsonscan-d` — Epson is a trademark; vendor extras live in `polyglotscan-epson`.

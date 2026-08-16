@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Trademark / fake store listing
+    url: https://github.com/PolyglotScan/polyglotscan/blob/main/TRADEMARK.adoc
+    about: Impersonation, ad-stuffed reuploads, duplicate clones

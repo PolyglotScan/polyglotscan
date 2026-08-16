@@ -1,0 +1,20 @@
+= Changelog
+
+The format is based on https://keepachangelog.com/en/1.1.0/[Keep a Changelog].
+This project follows https://semver.org/spec/v2.0.0.html[Semantic Versioning].
+
+== Unreleased
+
+=== Added
+
+* Desktop app with a full-window zoom/pan/loupe preview and live global + Sauvola thresholding (the ALDI-receipt path).
+* Pluggable backends: WIA, TWAIN 2, eSCL, Epson hints, and a file/synthetic fixture.
+* Export to PDF, PNG, JPEG, and JPEG-XL.
+* Marketing site (SolidStart static, solid-ui): black/white with scan-bar green, top-bar i18n, GitHub link.
+* Brand Guardian License 1.0 Standard on software; reserved brand; Prohibited Distribution against store-clone spam.
+
+=== Details
+
+* xref:changelog-details/2026-08-15-bootstrap.adoc[2026-08-15 — Workspace bootstrap]
+* xref:changelog-details/2026-08-15-site-brand-mpl.adoc[2026-08-15 — Website, mark, and license split]
+* xref:changelog-details/2026-08-15-bgl-reference.adoc[2026-08-15 — Brand Guardian License 1.0 Standard]

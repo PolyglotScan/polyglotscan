@@ -1,0 +1,39 @@
+= Architecture
+
+PolyglotScan is a **scanner front-end**, not a replacement for printer firmware.
+
+== Why a custom app can beat the official UI
+
+Epson Scan 2 already has the *controls* (Image Type, Threshold, Text Enhancement). The failure mode on light thermal receipts is *judging* those controls: the preview pane is a small fixed size, and Zoom / Loupe are often disabled. A third-party app can:
+
+* Fill the window with the preview (the pixels you are about to commit).
+* Pan, wheel-zoom, and a loupe that follows the cursor at 1:1 or 2×.
+* Apply binarize **after** a grayscale scan so the slider is live (no re-scan per tick).
+* Use **adaptive** thresholding (Sauvola) which a global firmware threshold cannot match on stained or faded receipts.
+* Export JPEG-XL, which Epson Scan 2 does not offer.
+
+That is **UX parity plus** on the receipt workflow. It is **not** bit-identical to every Epson proprietary filter (Remove Background, Auto Area Segmentation, Digital ICE on film units). Those stay in the vendor plugin backlog.
+
+== Official SDK
+
+Epson Scan SDK for Windows and the TWAIN Custom Capabilities Kit are **partner downloads**. They are not on a public URL we can vendor. Redistributing them would also violate their license.
+
+Cross-brand baseline therefore uses public specs the installed driver already speaks:
+
+* **TWAIN 2** (`TWAINDSM.dll`) — richest local control; Epson Scan 2 registers as a source.
+* **WIA 2** — Windows default; some Epson WIA stacks stall during `DeviceInfos` enumeration, so this backend times out on a worker thread.
+* **eSCL** (AirScan / Mopria) — HTTP, network MFPs including many EcoTanks.
+
+The Epson plugin may later bind extra TWAIN custom capabilities *if* they are advertised. It must not ship partner `.lib`/`.dll` SDKs.
+
+== Scan pipeline
+
+. Enumerate via every registered `ScanBackend` (fixture always present).
+. Preview = strip at preview DPI (default 150).
+. Adjust crop, zoom, loupe, binarize locally.
+. Final scan = full DPI grayscale/color, then the same local process graph.
+. Encode PNG / JPEG / JPEG-XL / PDF.
+
+== UI toolkit
+
+Day-one UI is dlangui on the Win32 `minimal` configuration (native, no web, no OpenGL). The preview widget talks to `ColorDrawBuf` so a later **vello-d** backend can replace only that surface. `dlang-supplemental/dlangui` does not yet export a documented `vello-windows` configuration to depend on here.

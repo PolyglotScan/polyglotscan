@@ -1,0 +1,29 @@
+name "polyglotscan"
+description "Native desktop scanner with a full-size zoomable preview"
+homepage "https://polyglotscan.com"
+authors "AMDphreak"
+license "LicenseRef-Brand-Guardian-License-1.0-Standard"
+copyright "Copyright © 2026 PolyglotScan contributors"
+
+targetType "executable"
+targetName "polyglotscan"
+targetPath "bin"
+sourcePaths "apps/polyglotscan/source"
+importPaths "apps/polyglotscan/source"
+
+versions "EmbedStandardResources"
+lflags-windows "/SUBSYSTEM:WINDOWS"
+
+dependency "dlangui" version="~>0.10.8"
+subConfiguration "dlangui" "minimal"
+
+dependency "polyglotscan-core" path="libs/core"
+dependency "polyglotscan-image" path="libs/image"
+dependency "polyglotscan-encode" path="libs/encode"
+dependency "polyglotscan-fixture" path="libs/fixture"
+dependency "polyglotscan-wia" path="libs/wia"
+dependency "polyglotscan-twain" path="libs/twain"
+dependency "polyglotscan-escl" path="libs/escl"
+dependency "polyglotscan-epson" path="libs/epson"
+
+libs-windows "ole32" "oleaut32" "user32" "gdi32" "uuid"

@@ -1,0 +1,38 @@
+= Licensing intent
+
+Not legal advice. This is how PolyglotScan is meant to be copied.
+
+Where Mozilla Public License 2.0 would allow something Brand Guardian License 1.0 Standard forbids (store-clone spam, ad-stuffed reuploads, using reserved branding), **Brand Guardian License wins**. This project applies BGL Standard to the software; it does not ship MPL.
+
+== Three buckets
+
+[cols="1,2,2"]
+|===
+| Bucket | License | What it covers
+
+| **Software**
+| link:LICENSE[Brand Guardian License 1.0 Standard]
+| App, scan core, image/encode libraries, WIA/TWAIN/eSCL backends, vendor *plugins* (`polyglotscan-epson` etc.), website source *except* files under `brand/`. Incorporation and Competing Use are *allowed*. Canonical steward: https://github.com/dev-centr/brand-guardian-license
+
+| **Brand**
+| Reserved (BGL Branding) — see `brand/LICENSE` and TRADEMARK
+| Name *PolyglotScan*, logos, icons, wordmarks, splash, colorways, trade dress, polyglotscan.com. Not granted by the software license.
+
+| **Store / “official” presentation**
+| BGL *Prohibited Distribution* + trademark — link:TRADEMARK.adoc[TRADEMARK]
+| Junk listings, malware, and ad-stuffed mirrors of this software are copyright breaches under BGL, not only trademark complaints.
+|===
+
+Standard is the default BGL tier: plugins and bundling stay legal; official-looking clone spam does not. Tighter tiers (No Competing Use / No Incorporation) are not used here.
+
+== Why Standard (not MPL)
+
+* Copyright remedies against Prohibited Distribution without pretending the code is OSI Open Source.
+* Incorporation allowed, so other apps and plugins may bundle or link the libraries.
+* File-level copyleft is *not* the goal; rename-and-fork is allowed if you drop Branding and skip Prohibited Distribution.
+
+== What not to do
+
+* Do not dual-license the same file as MPL (or MIT/Apache) plus BGL. One copyright grant.
+* Do not claim a store build is *PolyglotScan* if it injects ads or a subscription to remove ads.
+* Do not relicense `brand/` as free-for-any-use assets.

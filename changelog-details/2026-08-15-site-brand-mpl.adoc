@@ -1,0 +1,5 @@
+= Website, mark, and license split
+
+Date:: 2026-08-15
+
+Added the platen-and-lamp SVG (transparent + on-dark), 256px PNGs, Windows ICO, SolidStart static site with language menu and GitHub link, and parked identity under `brand/` plus TRADEMARK. Software license settled on Brand Guardian License 1.0 Standard rather than MPL.

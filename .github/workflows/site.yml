@@ -1,0 +1,35 @@
+name: site
+on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/web/**"
+      - "brand/**"
+      - ".github/workflows/site.yml"
+  pull_request:
+    paths:
+      - "apps/web/**"
+      - "brand/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: apps/web/pnpm-lock.yaml
+      - name: Copy reserved brand into the site
+        run: |
+          cp ../../brand/logo.svg public/logo.svg
+          cp ../../brand/icon.ico public/favicon.ico
+        shell: bash
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build

@@ -1,0 +1,95 @@
+= Layer map and gaps
+
+Reusable DUB packages in this repo, plus layers a well-factored scanner stack still needs.
+
+== Present
+
+[cols="2,3,2"]
+|===
+|Package |Responsibility |Graduate to
+
+|`polyglotscan-core`
+|`Raster`, `ScanDevice`, `ScanRequest`, `ScanBackend`, plugin registry
+|`PolyglotScan/polyglotscan-core`
+
+|`polyglotscan-image`
+|Gray convert, histogram, Otsu, global threshold, Sauvola
+|`PolyglotScan/polyglotscan-image`
+
+|`polyglotscan-encode`
+|PNG / JPEG / PDF writers; JPEG-XL via `cjxl` if installed
+|`PolyglotScan/polyglotscan-encode`
+
+|`polyglotscan-fixture`
+|Synthetic faded receipt + open raster from disk
+|stay or merge into core tests
+
+|`polyglotscan-wia`
+|WIA 2 COM, worker thread, timeout
+|`PolyglotScan/polyglotscan-wia`
+
+|`polyglotscan-twain`
+|TWAIN 2 DSM, UI-less native DIB transfer
+|`PolyglotScan/polyglotscan-twain`
+
+|`polyglotscan-escl`
+|eSCL capabilities GET + ScanJobs (minimal)
+|`PolyglotScan/polyglotscan-escl`
+
+|`polyglotscan-epson`
+|Prefer Epson TWAIN identity; vendor capability aliases
+|`PolyglotScan/polyglotscan-epson`
+|===
+
+== Missing (not stubbed enough to publish)
+
+[cols="2,3,1"]
+|===
+|Layer |Why it exists |Status
+
+|`polyglotscan-ui`
+|Preview canvas / loupe / markup as a toolkit-agnostic widget; Vello or Qt swap
+|inlined in `apps/polyglotscan`
+
+|`polyglotscan-sane`
+|Linux USB/network scanners
+|not started
+
+|`polyglotscan-ica`
+|macOS Image Capture
+|not started
+
+|`polyglotscan-adf`
+|Feeder, duplex, page splitting, blank-page drop
+|not started
+
+|`polyglotscan-deskew-crop`
+|Auto deskew, content crop, punch-hole fill
+|not started
+
+|`polyglotscan-ocr`
+|Searchable PDF (Tesseract / WinRT OCR)
+|not started
+
+|`polyglotscan-color-drop`
+|Dropout / color enhance equivalents of Epson Scan 2
+|not started
+
+|`polyglotscan-escl-mdns`
+|Discover `_uscan._tcp` instead of typing an IP
+|not started
+
+|32-bit TWAIN worker
+|Many sources are still 32-bit; NAPS2 isolates them in a helper process
+|not started (64-bit DSM only)
+
+|JPEG-XL encode in-process
+|`jxl-d` / `libjxl-d` instead of `cjxl` PATH
+|deferred — link story is heavier than a first UI
+
+|Band A product essentials
+|MSI/MSIX, auto-update, stamped build id, crash dump, Help book
+|About + debug dump + CI compile only
+|===
+
+Do not fold vendor SDKs into `polyglotscan-core`. A Canon or Brother plugin should look like `polyglotscan-epson`: identity matching + optional extra capabilities, same `ScanBackend` contract.

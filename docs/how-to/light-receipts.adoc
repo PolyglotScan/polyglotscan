@@ -1,0 +1,19 @@
+= Scan a light receipt (ALDI / thermal)
+
+== Goal
+
+Read faint black text on cheap thermal paper without the driver deciding a global cutoff on a postage-stamp preview.
+
+== Steps
+
+. Put the receipt on the **platen glass**, not the ADF if the paper curls. Close the lid or cover with a white sheet.
+. In PolyglotScan, choose the scanner (WIA or TWAIN — TWAIN is usually the Epson Scan 2 source).
+. Set DPI to 300 (600 if the type is tiny). Image type stays **grayscale**.
+. Click *Preview*. Wait for the full-window image.
+. Wheel-zoom into the feeblest line of type. Right-drag for a loupe.
+. Drag **Threshold**. If the background speckles before the text fills, enable **Sauvola** (local contrast) instead of a single cutoff.
+. *Scan* (or skip if preview resolution is enough) and *Save* as PNG or PDF. JPEG-XL if you want a small lossless/near-lossless archive.
+
+== If the scanner is busy / WIA hangs
+
+WIA device listing can block on a sleeping MFP. Use TWAIN, unplug extra cameras, or *File → Open image* on a scan you already made and re-binarize it here.
