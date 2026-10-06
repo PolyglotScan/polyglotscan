@@ -59,3 +59,4 @@ MEMORIES.md
 **/.env
 *.local.json5
 **/*.local.json5
+!/.editorconfig
